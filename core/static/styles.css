@@ -1,0 +1,169 @@
+.heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Container for All Job Cards */
+.all-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Job Card */
+.card {
+  background-image: linear-gradient(to right, #eff6ff, #faf5ff);
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: black;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 15px;
+}
+
+.company-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-size: 14px;
+}
+
+.job-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Card Body */
+.card-body p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Job Details */
+.salary {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.salary span {
+  font-size: 18px;
+}
+
+.location {
+  font-size: 18px;
+  text-transform: capitalize;
+  padding-bottom: 2px;
+}
+
+.job-type,
+.experience,
+.skills,
+.work-arrangement {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skills {
+  background-color: #dbeafe;
+  color: #4f86f5;
+}
+
+.experience {
+  background-color: #fceaa2;
+  color: #f7ab29;
+}
+
+.job-type {
+  background-color: #f3e8ff;
+  color: #b573f1;
+}
+
+.work-arrangement {
+  background-color: #a7f3d0;
+  color: #10b981;
+}
+
+.start-date {
+  font-size: 14px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.card-footer-container {
+  color: black;
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  padding-bottom: 10px;
+}
+
+.details-btn {
+  background-image: linear-gradient(to right, #3b82f6, #a855f7);
+  padding: 8px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  color: white;
+  text-align: center;
+}
+
+.details-btn:hover {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+}
+
+/* TAG LIST */
+.tag-list {
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px 8px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.tag {
+  text-align: center;
+  border-radius: 30px;
+  padding: 6px 9px;
+  white-space: nowrap;
+}

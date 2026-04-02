@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Job Listings{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <style>
+    .all-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    
+  </style>
+{% endblock %}
+{% block content %}
+  <h2 class="heading">Available Jobs and Internships</h2>
+  <div class="all-cards">
+    {% for opportunity in opportunities %}
+      <div class="card">
+        
+        <div class="card-body">
+          <div class="card-header">
+            <p class="start-date">
+              {% if opportunity.start_date %}
+                {{ opportunity.start_date|date:"d F, Y" }}
+              {% else %}
+                Not Specified
+              {% endif %}
+            </p>
+            <div class="company-logo">
+              <img src="{{ opportunity.employer.company_logo.url }}" alt="Company Logo">
+            </div>
+          </div>
+          
+          <div class="company-info">
+            <p class="company-name">{{ opportunity.employer.company_name }}</p>
+            <h3 class="job-title">{{ opportunity.title }}</h3>
+          </div>
+
+          <div class="tag-list">
+            {% for skill in opportunity.skills_required %}
+              <p class="skills tag">{{ skill }}</p>
+            {% empty %}
+              <p class="skills tag">No skills required</p>
+            {% endfor %}
+
+            <p class="job-type tag">{{ opportunity.opportunity_type|title }}</p>
+
+            <p class="experience tag">{{ opportunity.experience_required }}</p>
+
+            <p class="work-arrangement tag">
+              {% if opportunity.opportunity_type == "job" %}
+                Full Time
+              {% else %}
+                Part Time
+              {% endif %}
+            </p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-footer-container">
+            <p class="salary">
+              ₹
+              {% if opportunity.salary_range %}
+              {{ opportunity.salary_range }}
+              <span>/month</span>
+              {% elif opportunity.stipend %}
+              {{ opportunity.stipend }}
+              <span>/month</span>
+              {% else %}
+              N/A
+              {% endif %}
+            </p>
+            <p class="location">{{ opportunity.location }}</p>
+          </div>
+
+          <a href="{% url 'opportunity_detail' opportunity.id %}" class="details-btn">View Details</a>
+        </div>
+      </div>
+    {% empty %}
+      <p>No opportunities available at this time.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
